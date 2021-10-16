@@ -13,15 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route Laravel
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Biodata
+Route::get('/biodata', function(){
+    return view('halo');
+});
 
-// Route::get('/biodata', function(){
-//     return view('halo');
-// });
-
+//
 Route::get('/biodata1', function(){
     $nama = "Fani Ramadhanty";
     $kelas = "XII RPL 1";
@@ -38,6 +40,8 @@ Route::get('posting/{nama?}/{kelas?}/{jk?}', function($nama,$kelas,$jk){
     ]);
 });
 
+
+
 Route::get('blog', function(){
     $data = [
         ['id' => 1, 'title' => 'Olahraga', 'content' => 'sepak bola'],
@@ -48,12 +52,13 @@ Route::get('blog', function(){
 });
 
 
+
 Route::get('datasiswa', function(){
     $siswa = [
-        ['nis' => 19201753173, 'nama' => "Fani Ramadhanty", 'jk' => 'P', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
-        ['nis' => 19201753166, 'nama' => "Adya Eka Amelia", 'jk' => 'P', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
-        ['nis' => 19201751039, 'nama' => "M. Taufik Al-Hidayat", 'jk' => 'L', 'jurusan' => 'TKRO', 'kelas' =>  '12 TKRO 1', 'wk' => 'Maya' ],
-        ['nis' => 19201751002, 'nama' => "Aditia Prasetiyo", 'jk' => 'L', 'jurusan' => 'TKRO', 'kelas' =>  '12 TKRO 1', 'wk' => 'Maya' ],
+        ['nis' => 19201753173, 'nama' => 'Fani Ramadhanty', 'jk' => 'P', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
+        ['nis' => 19201753166, 'nama' => 'Adya Eka Amelia', 'jk' => 'P', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
+        ['nis' => 19201751039, 'nama' => 'M. Taufik Al-Hidayat', 'jk' => 'L', 'jurusan' => 'TKRO', 'kelas' =>  '12 TKRO 1', 'wk' => 'Maya' ],
+        ['nis' => 19201751002, 'nama' => 'Aditia Prasetiyo', 'jk' => 'L', 'jurusan' => 'TKRO', 'kelas' =>  '12 TKRO 1', 'wk' => 'Maya' ],
         ['nis' => 19201753170, 'nama' => "Cecep Superi", 'jk' => 'L', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
         ['nis' => 19201753193, 'nama' => "Syifa Siti Khumairah", 'jk' => 'P', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
         ['nis' => 19201753192, 'nama' => "Maudy Meilisa", 'jk' => 'P', 'jurusan' => 'RPL', 'kelas' =>  '12 RPL 1', 'wk' => 'Herna Diana' ],
@@ -65,72 +70,79 @@ Route::get('datasiswa', function(){
     return view('data-siswa', compact('siswa'));
 });
 
-// Route::get('/halo', function () {
-//     return '<h1>Halo Fani Ramadhanty</h1>';
-// });
 
-// Route::get('/biodata', function () {
-//     echo '<h3>Nama: Fani Ramadhanty <br>
-//             Tempat, Tanggal Lahir: Bandung, 13 November 2003 <br>
-//             Alamat : Kp. Cangkuang Wetan <br>
-//             Hobi : Menggambar <br>
-//             Status : Pelajar <br>
-//             Umur : 17 Tahun</h3>';
-// }); 
+
+Route::get('/halo', function () {
+    return '<h1>Halo Fani Ramadhanty</h1>';
+});
 
 
 
-// Route::get('/halo/{nama}/{tgl}', function($nama) {
-//     echo "Nama Saya: " .$nama;
-//     echo "Tempat, Tanggal Lahir: " .$tanggal;
-// });
+Route::get('/biodata', function () {
+    echo '<h3>Nama: Fani Ramadhanty <br>
+            Tempat, Tanggal Lahir: Bandung, 13 November 2003 <br>
+            Alamat : Kp. Cangkuang Wetan <br>
+            Hobi : Menggambar <br>
+            Status : Pelajar <br>
+            Umur : 17 Tahun</h3>';
+}); 
 
 
-// //Route Parameter
-// Route::get('/input/{nama}/{Tgl}/{alamat}/{hobi}/{status}/{umur}', function($nama,$tanggal,$alamat,$hobi,$status,$umur){
-//     echo "Nama Saya: " .$nama . "<br>";
-//     echo "Tempat, Tanggal Lahir: " .$tanggal . "<br>";
-//     echo "Alamat : " .$alamat . "<br>";
-//     echo "Hobi : " .$hobi . "<br>";
-//     echo "Status : " .$status ."<br>";
-//     echo "Umur : " .$umur . "<br>" ;
-// });
 
-// //optional parameter
-// Route::get('/optional/{nama?/{Tgl?}/{alamat?}/{hobi?}/{status?}/{umur?}', function($nama="",$tanggal="",$alamat="",$hobi="",$status="",$umur=""){
-//     echo "Nama Saya: " .$nama . "<br>";
-//     echo "Tempat, Tanggal Lahir: " .$tanggal . "<br>";
-//     echo "Alamat : " .$alamat . "<br>";
-//     echo "Hobi : " .$hobi . "<br>";
-//     echo "Status : " .$status ."<br>";
-//     echo "Umur : " .$umur . "<br>" ;
-// });
+Route::get('/halo/{nama}/{tgl}', function($nama) {
+    echo "Nama Saya: " .$nama;
+    echo "Tempat, Tanggal Lahir: " .$tanggal;
+});
 
-// //latihan
-// Route::get('/ujian/{nama?}/{kelas?}/{matematika?}/{Indonesia?}/{Inggris?}/{Produktif?}', function($nama="NULL",$kelas="12 RPL 1",
-//     $mtk=0, $indo=0,$inggris=0,$produktif=0){
-//     echo "Nama : " .$nama ."<br>";
-//     echo "Kelas : " .$kelas ."<br>";
-//     echo "Nilai Matematika : " .$mtk."<br>";
-//     echo "Nilai Indonesia : " .$indo."<br>";
-//     echo "Nilai Inggris : " .$inggris."<br>";
-//     echo "Nilai Produktif : " .$produktif."<br>";
-//     $Hasil = ($mtk+$indo+$inggris+$produktif)/4;
-//     echo "Rata-Rata : $Hasil";
-// });
+
+
+//Route Parameter
+Route::get('/input/{nama}/{Tgl}/{alamat}/{hobi}/{status}/{umur}', function($nama,$tanggal,$alamat,$hobi,$status,$umur){
+    echo "Nama Saya: " .$nama . "<br>";
+    echo "Tempat, Tanggal Lahir: " .$tanggal . "<br>";
+    echo "Alamat : " .$alamat . "<br>";
+    echo "Hobi : " .$hobi . "<br>";
+    echo "Status : " .$status ."<br>";
+    echo "Umur : " .$umur . "<br>" ;
+});
+
+
+
+//optional parameter
+Route::get('/optional/{nama?/{Tgl?}/{alamat?}/{hobi?}/{status?}/{umur?}', function($nama="",$tanggal="",$alamat="",$hobi="",$status="",$umur=""){
+    echo "Nama Saya: " .$nama . "<br>";
+    echo "Tempat, Tanggal Lahir: " .$tanggal . "<br>";
+    echo "Alamat : " .$alamat . "<br>";
+    echo "Hobi : " .$hobi . "<br>";
+    echo "Status : " .$status ."<br>";
+    echo "Umur : " .$umur . "<br>" ;
+});
+
+//latihan
+Route::get('/ujian/{nama?}/{kelas?}/{matematika?}/{Indonesia?}/{Inggris?}/{Produktif?}', function($nama="NULL",$kelas="12 RPL 1",
+    $mtk=0, $indo=0,$inggris=0,$produktif=0){
+    echo "Nama : " .$nama ."<br>";
+    echo "Kelas : " .$kelas ."<br>";
+    echo "Nilai Matematika : " .$mtk."<br>";
+    echo "Nilai Indonesia : " .$indo."<br>";
+    echo "Nilai Inggris : " .$inggris."<br>";
+    echo "Nilai Produktif : " .$produktif."<br>";
+    $Hasil = ($mtk+$indo+$inggris+$produktif)/4;
+    echo "Rata-Rata : $Hasil";
+});
 
 //LATIHAN 2 
-// Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}', function($makanan="null",$minuman="null",$cemilan="null"){
-//     if($makanan != 'null'){
-//         echo "Anda Pesan <br> Makanan: " .$makanan ."<br>";
-//     }if($makanan && $minuman != 'null'){
-//         echo "Minum: $minuman" . "<br>";
-//     }if($makanan && $minuman && $cemilan != 'null'){
-//         echo "Cemilan: $cemilan";
-//     }if($makanan == 'null' && $minuman == 'null' && $cemilan == 'null'){
-//         echo "Anda Tidak Pesan, Silahkan Pulang";
-//     }
-// });
+Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}', function($makanan="null",$minuman="null",$cemilan="null"){
+    if($makanan != 'null'){
+        echo "Anda Pesan <br> Makanan: " .$makanan ."<br>";
+    }if($makanan && $minuman != 'null'){
+        echo "Minum: $minuman" . "<br>";
+    }if($makanan && $minuman && $cemilan != 'null'){
+        echo "Cemilan: $cemilan";
+    }if($makanan == 'null' && $minuman == 'null' && $cemilan == 'null'){
+        echo "Anda Tidak Pesan, Silahkan Pulang";
+    }
+});
 
 Route::get('pesan/{makan?}/{minum?}/{cemilan?}', function ($makan = null, $minum = null, $cemilan = null) {
     if ($makan == null && $minum == null && $cemilan == null){
@@ -151,3 +163,64 @@ Route::get('pesan/{makan?}/{minum?}/{cemilan?}', function ($makan = null, $minum
     }
     return $pesan;
 });
+
+
+Route::get('siswa', function () {
+    $siswas = [
+        ['id'        =>1,
+         'nama'      =>'Fani',
+         'username'  =>'fanira',
+         'email'     =>'fani_173@smkassalaambandung.sch.id',
+         'alamat'    =>'Bandung',
+         'mapel'     =>[
+                        'mapel1' => 'Bahasa Indonesia',
+                        'mapel2' => 'Bahasa Inggris',
+                        'mapel3' => 'Bahasa Jepang'
+         ]   
+         ],
+        ];
+return view('siswa', compact('siswas'));
+    });
+
+
+Route::get('hobi', function () {
+    $hobis = [
+        ['nis'    => '1001',
+         'nama'   => 'Adzura',
+         'kelas'  => '12 Rpl 1',
+         'hobi'   => ['hobi1' => 'Pergi ke CC',
+                      'hobi2' => 'Tiktokan',
+                      'hobi3' => 'Makan']
+    ],
+    ['nis'    => '1002',
+    'nama'   => 'Ikbal',
+    'kelas'  => '12 Rpl 1',
+    'hobi'   => ['hobi1' => 'Main Bola',
+                 'hobi2' => 'Ngaji',
+                 'hobi3' => 'Memancing']
+    ],
+    ];
+    return view('hobi', compact('hobis'));
+});
+
+Route::get('/testmodel', function () {
+    $query = App\Models\Post::all();
+    return $query;
+});
+
+
+Route::get('/test-post', function () {
+    $query = App\Models\Post::all();
+    return view('test-post', compact('query'));
+});
+
+Route::get('/testBiodata', function() {
+    $query = App\Models\Biodata::all();
+    return $query;
+});
+
+Route::get('/testBiodatas', function () {
+    $query = App\Models\Biodata::all();
+    return view('test-biodata', compact('query'));
+});
+
