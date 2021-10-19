@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MyController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -224,3 +226,12 @@ Route::get('/testBiodatas', function () {
     return view('test-biodata', compact('query'));
 });
 
+//laravel dibawah versi 8
+// Route::get('/contoh',function () {
+//     return view('sample');
+// });
+
+//laravel versi 8
+Route::get('/contoh', [MyController::class, 'tampilkan']);
+
+Route::get('/artikel', [PostController::class, 'data']);
